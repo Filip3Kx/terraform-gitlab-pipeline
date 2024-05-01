@@ -21,7 +21,7 @@ data "google_service_account_access_token" "default" {
 
 # default provider to use the the token
 provider "google" {
-  project         = var.project_id
+  project         = var.gcp_info.project
   access_token    = data.google_service_account_access_token.default.access_token
   request_timeout = "60s"
 }

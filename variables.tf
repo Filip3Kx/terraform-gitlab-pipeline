@@ -2,10 +2,6 @@ variable "terraform_service_account" {
   type = string
 }
 
-variable "project_id" {
-  type = string
-}
-
 variable "not_impersonate" {
     type = bool
     default = false

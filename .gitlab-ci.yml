@@ -24,11 +24,14 @@ stages:
   - plan
   - apply
 
-init:
+check-formating:
   stage: test
   script:
-    - gitlab-terraform version
     - gitlab-terraform fmt -check
+
+validate-config:
+  stage: test
+  script:
     - gitlab-terraform validate
 
 plan:

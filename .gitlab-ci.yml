@@ -6,7 +6,6 @@
 # terraform plan
 # if commit name ends with apply do terraform apply
 
-image: hashicorp/terraform:1.8.2
 
 stages:
   - init
@@ -14,6 +13,7 @@ stages:
 
 init:
   stage: init
+  image: hashicorp/terraform:1.8.2
   script:
     - terraform version
     - terraform fmt -check
@@ -22,6 +22,7 @@ init:
 
 plan:
   stage: plan
+  image: hashicorp/terraform:1.8.2
   script:
     - terraform init
     - terraform plan

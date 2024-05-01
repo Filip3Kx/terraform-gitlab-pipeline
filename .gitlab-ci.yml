@@ -6,6 +6,7 @@
 # terraform plan
 # if commit name ends with apply do terraform apply
 
+image: hashicorp/terraform:1.8.2
 
 stages:
   - init
@@ -15,7 +16,7 @@ init:
   stage: init
   script:
     - terraform version
-    - tf fmt -check
+    - terraform fmt -check
     - echo $GOOGLE_TF_SA_KEY > /var/key.json
     - export GOOGLE_APPLICATION_CREDENTIALS=/var/key.json
 

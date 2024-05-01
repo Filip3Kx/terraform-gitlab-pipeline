@@ -1,7 +1,7 @@
-terraform_service_account = ""
-not_impersonate = null
+terraform_service_account = "terraform@linen-hook-422021-a8.iam.gserviceaccount.com"
+not_impersonate = false
 gcp_info = {
-    project = "caramel-compass-393820"
+    project = "linen-hook-422021-a8"
     region = "europe-west1"
     zone = "europe-west1-b"
 }

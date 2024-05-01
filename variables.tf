@@ -10,7 +10,7 @@ variable "not_impersonate" {
 variable "gcp_info" {
   type = map
   default = {
-    project = "caramel-compass-393820"
+    project = "linen-hook-422021-a8"
     region = "europe-west1"
     zone = "europe-west1-b"
 

@@ -5,25 +5,23 @@
 
 # terraform plan
 # if commit name ends with apply do terraform apply
+
+
 stages:
   - init
   - plan
-  - apply
 
 init:
   stage: init
   script:
     - terraform version
     - tf fmt -check
-    - tf validate
+    - echo $GOOGLE_TF_SA_KEY > /var/key.json
+    - export GOOGLE_APPLICATION_CREDENTIALS=/var/key.json
 
 plan:
   stage: plan
   script:
+    - terraform init
     - terraform plan
 
-apply:
-  stage: apply
-  when: manual
-  script:
-    - if [[ $CI_COMMIT_REF_NAME =~ apply$ ]]; then terraform apply; fi

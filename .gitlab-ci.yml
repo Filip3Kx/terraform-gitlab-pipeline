@@ -34,13 +34,13 @@ validate-config:
   script:
     - gitlab-terraform validate
 
-plan:
+terraform-plan:
   stage: plan
   script:
     - gitlab-terraform init
     - gitlab-terraform plan
 
-apply:
+terraform-apply:
   stage: apply
   script:
     - gitlab-terraform apply -auto-approve

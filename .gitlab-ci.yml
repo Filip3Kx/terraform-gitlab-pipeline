@@ -19,6 +19,7 @@ cache:
 stages:
   - test
   - plan
+  - apply
 
 init:
   stage: test
@@ -34,3 +35,10 @@ plan:
     - gitlab-terraform init
     - gitlab-terraform plan
 
+apply:
+  stage: apply
+  script:
+    - echo $GOOGLE_TF_SA_KEY > /var/key.json
+    - export GOOGLE_APPLICATION_CREDENTIALS=/var/key.json
+    - echo apply
+  when: manual

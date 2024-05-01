@@ -17,11 +17,11 @@ cache:
 
 
 stages:
-  - init
+  - test
   - plan
 
 init:
-  stage: init
+  stage: test
   script:
     - gitlab-terraform version
     - gitlab-terraform fmt -check

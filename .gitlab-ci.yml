@@ -43,5 +43,5 @@ plan:
 apply:
   stage: apply
   script:
-    - echo apply
+    - gitlab-terraform apply -auto-approve
   when: manual

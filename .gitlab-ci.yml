@@ -1,0 +1,29 @@
+# init environment
+# terraform version
+# check if tf fmt is done
+# check if tf validate is done
+
+# terraform plan
+# if commit name ends with apply do terraform apply
+stages:
+  - init
+  - plan
+  - apply
+
+init:
+  stage: init
+  script:
+    - terraform version
+    - tf fmt -check
+    - tf validate
+
+plan:
+  stage: plan
+  script:
+    - terraform plan
+
+apply:
+  stage: apply
+  when: manual
+  script:
+    - if [[ $CI_COMMIT_REF_NAME =~ apply$ ]]; then terraform apply; fi

@@ -6,6 +6,15 @@
 # terraform plan
 # if commit name ends with apply do terraform apply
 
+image: registry.gitlab.com/gitlab-org/terraform-images/stable:latest
+
+variables:
+  TF_ADDRESS: ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/terraform/state/default
+
+cache:
+  paths:
+    - .terraform/**
+
 
 stages:
   - init
@@ -13,17 +22,15 @@ stages:
 
 init:
   stage: init
-  image: hashicorp/terraform:1.8.2
   script:
-    - terraform version
-    - terraform fmt -check
-    - echo $GOOGLE_TF_SA_KEY > /var/key.json
-    - export GOOGLE_APPLICATION_CREDENTIALS=/var/key.json
+    - gitlab-terraform version
+    - gitlab-terraform fmt -check
 
 plan:
   stage: plan
-  image: hashicorp/terraform:1.8.2
   script:
-    - terraform init
-    - terraform plan
+    - echo $GOOGLE_TF_SA_KEY > /var/key.json
+    - export GOOGLE_APPLICATION_CREDENTIALS=/var/key.json
+    - gitlab-terraform init
+    - gitlab-terraform plan
 

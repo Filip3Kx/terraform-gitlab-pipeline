@@ -1,3 +1,6 @@
 key.json
 .terraform
 .terraform.lock.hcl
+.plan.cache
+.terraform.tfstate
+.terraform.tfstate.backup

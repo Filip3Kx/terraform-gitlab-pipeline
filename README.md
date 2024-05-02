@@ -2,6 +2,9 @@
 
 Simple pipeline to deploy your terraform code in an automated manner
 
+![image](https://github.com/Filip3Kx/terraform-gitlab-pipeline/assets/114138650/237caa36-b932-4655-9fa2-1a10116b7b46)
+
+
 ## Pipeline
 
 Here is a rundown of what the pipeline does before applying the terraform configuration to your infrastracture.
@@ -53,3 +56,5 @@ Example:
 The pipeline uses a Service Account JSON key to authenticate to GCP in my case and it also supports impersonation for not automated testing
 
 All you need to do is set a variable in your GitLab project that stores the key and retrives it during the job. In my example it's called `$GOOGLE_TF_SA_KEY`
+
+![image](https://github.com/Filip3Kx/terraform-gitlab-pipeline/assets/114138650/207e447f-930b-41d3-83ec-214814d61a97)

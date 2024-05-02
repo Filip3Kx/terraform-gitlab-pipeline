@@ -1,18 +1,26 @@
 # GitLab CI with Terraform
 
----
+Simple pipeline to deploy your terraform code in an automated manner
+
 ## Pipeline
 
 Here is a rundown of what the pipeline does before applying the terraform configuration to your infrastracture.
 
-1. Formatting check
-    Performs a `terraform fmt` command and fails if the formating is not valid when commiting.
-2. Terraform Validate
-    Performs a `terraform validate` command and fails if the configuration is not valid and raises any errors.
-3. Terraform Plan
-    Prepares a `terraform plan` that's displayed in the job logs as well as being saved in json format in the job artifacts and reports.
-4. Terraform Apply
-    `terraform apply` job only goes through after a manual start if everything seems right in the previous jobs.
+**1. Formatting check**
+    
+  Performs a `terraform fmt` command and fails if the formating is not valid when commiting.
+
+**2. Terraform Validate**
+    
+  Performs a `terraform validate` command and fails if the configuration is not valid and raises any errors.
+
+**3. Terraform Plan**
+    
+  Prepares a `terraform plan` that's displayed in the job logs as well as being saved in json format in the job artifacts and reports.
+
+**4. Terraform Apply**
+    
+  `terraform apply` job only goes through after a manual start if everything seems right in the previous jobs.
 
 ---
 ## Docker Image

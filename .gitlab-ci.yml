@@ -1,11 +1,3 @@
-# init environment
-# terraform version
-# check if tf fmt is done
-# check if tf validate is done
-
-# terraform plan
-# if commit name ends with apply do terraform apply
-
 image: registry.gitlab.com/filip3kx/terraform-images/master-1.4:de499ca5cd5e682a2bb829c8e8119a10735412fc
 
 variables:
@@ -39,12 +31,11 @@ terraform-plan:
   script:
     - gitlab-terraform plan -lock=false -out=plan.cache
     - gitlab-terraform plan-json
-    - mv plan.json tfplan.json
   artifacts:
     paths:
       - plan.cache
     reports:
-      terraform: tfplan.json
+      terraform: plan.json
 
 terraform-apply:
   stage: apply

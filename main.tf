@@ -6,7 +6,7 @@
 
 
 resource "google_compute_network" "terraform-network" {
-  name = "terraform-network"
+  name                    = "terraform-network"
   auto_create_subnetworks = false
 }
 

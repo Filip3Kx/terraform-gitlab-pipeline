@@ -37,8 +37,13 @@ validate-config:
 terraform-plan:
   stage: plan
   script:
-    - gitlab-terraform init
     - gitlab-terraform plan -lock=false -out=plan.cache
+    - gitlab-terraform plan-json
+  artifacts:
+    paths:
+      - plan.cache
+    reports:
+      terraform: plan.json
 
 terraform-apply:
   stage: apply

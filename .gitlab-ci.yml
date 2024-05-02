@@ -6,7 +6,7 @@
 # terraform plan
 # if commit name ends with apply do terraform apply
 
-image: registry.gitlab.com/gitlab-org/terraform-images/stable:latest
+image: registry.gitlab.com/filip3kx/terraform-images/master-1.4:de499ca5cd5e682a2bb829c8e8119a10735412fc
 
 variables:
   GOOGLE_APPLICATION_CREDENTIALS: /var/key.json
@@ -26,6 +26,7 @@ stages:
 check-formating:
   stage: test
   script:
+    - gitlab-terraform version
     - gitlab-terraform fmt -check
 
 validate-config:

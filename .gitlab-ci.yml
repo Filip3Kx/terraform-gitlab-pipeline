@@ -37,7 +37,6 @@ validate-config:
 terraform-plan:
   stage: plan
   script:
-    - cat /var/key.json
     - gitlab-terraform init
     - gitlab-terraform plan
 

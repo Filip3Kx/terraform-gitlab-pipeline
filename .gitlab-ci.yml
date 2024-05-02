@@ -39,12 +39,11 @@ terraform-plan:
   script:
     - gitlab-terraform init
     - gitlab-terraform plan -lock=false -out=plan.cache
-    - cat plan.cache
 
 terraform-apply:
   stage: apply
   script:
-    - gitlab-terraform apply -auto-approve plan.cache
+    - gitlab-terraform apply plan.cache
   dependencies:
     - terraform-plan
   when: manual

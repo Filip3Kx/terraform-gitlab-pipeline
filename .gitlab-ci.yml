@@ -39,11 +39,12 @@ terraform-plan:
   script:
     - gitlab-terraform plan -lock=false -out=plan.cache
     - gitlab-terraform plan-json
+    - mv plan.json tfplan.json
   artifacts:
     paths:
       - plan.cache
     reports:
-      terraform: plan.json
+      terraform: tfplan.json
 
 terraform-apply:
   stage: apply

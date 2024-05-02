@@ -43,7 +43,7 @@ terraform-plan:
 terraform-apply:
   stage: apply
   script:
-    - gitlab-terraform apply plan.cache
+    - gitlab-terraform apply
   dependencies:
     - terraform-plan
   when: manual

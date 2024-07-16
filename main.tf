@@ -1,3 +1,4 @@
+# Data source for the debian image
 # data "google_compute_image" "debian" {
 #   family  = var.instance_info.image_family
 #   project = var.instance_info.image_project
